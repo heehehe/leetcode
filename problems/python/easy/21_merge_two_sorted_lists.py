@@ -24,6 +24,7 @@ class ListNode:
         self.val = val
         self.next = next
 
+## Solution1: https://leetcode.com/problems/merge-two-sorted-lists/discuss/1826693/Python3-MERGING-Explained
 class Solution:    
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         cur = dummy = ListNode()
@@ -39,3 +40,12 @@ class Solution:
             cur.next = list1 if list1 else list2
         
         return dummy.next
+
+## Solution2: https://leetcode.com/problems/merge-two-sorted-lists/discuss/9771/Simple-5-lines-Python
+class Solution:
+    def mergeTwoLists(self, a, b):
+        if a and b:
+            if a.val > b.val:
+                a, b = b, a
+            a.next = self.mergeTwoLists(a.next, b)
+        return a or b
