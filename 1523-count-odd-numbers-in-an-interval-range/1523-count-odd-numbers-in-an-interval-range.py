@@ -3,10 +3,13 @@ class Solution:
         if high % 2 == 0:
             if low % 2 == 0:
                 return (high - low) // 2
-            return (high - low + 1) // 2
-        if low % 2 == 0:
-            return (high - low + 1) // 2
-        return (high - low) // 2 + 1
+            else:
+                return (high - low + 1) // 2
+        else:
+            if low % 2 == 0:
+                return (high - low + 1) // 2
+            else:
+                return (high - low) // 2 + 1
         
         # if high - low + 1 % 2 == 0:
         #     return (high-low) // 2 + 1
