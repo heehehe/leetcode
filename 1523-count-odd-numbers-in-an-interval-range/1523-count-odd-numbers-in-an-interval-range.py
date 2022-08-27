@@ -2,21 +2,15 @@ class Solution:
     def countOdds(self, low: int, high: int) -> int:
         if high % 2 == 0:
             if low % 2 == 0:
+                # high even / low even
                 return (high - low) // 2
-            else:
-                return (high - low + 1) // 2
-        else:
-            if low % 2 == 0:
-                return (high - low + 1) // 2
-            else:
-                return (high - low) // 2 + 1
+            
+            # high even / low odd
+            return (high - low + 1) // 2
         
-        # if high - low + 1 % 2 == 0:
-        #     return (high-low) // 2 + 1
-        # return (high-low+1) // 2 + 1
+        # high odd / low even
+        if low % 2 == 0:
+            return (high - low + 1) // 2
         
-        # cnt = 0
-        # for i in range(low, high+1):
-        #     if i % 2 != 0:
-        #         cnt += 1
-        # return cnt
+        # high odd / low odd
+        return (high - low) // 2 + 1
